@@ -1,0 +1,38 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <button mat-raised-button class="btn btn-primary">Nuevo</button>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-warning">
+            <h4 class="card-title">Tabla Usuarios</h4>
+            <p class="card-category">Gestionar Usuarios</p>
+          </div>
+          <div class="card-content table-responsive table-full-width">
+            <table class="table">
+              <thead class="text-danger">
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Rol</th>
+                <th>CI</th>
+                <th>Dirección</th>
+                <th>Acciones</th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let usuario of usuarios">
+                  <td>{{ usuario.name }}</td>
+                  <td>{{ usuario.email }}</td>
+                  <td>{{ usuario.rol }}</td>
+                  <td>{{ usuario.ci }}</td>
+                  <td>{{ usuario.direccion }}</td>
+                  <td>Editar o Borrar</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

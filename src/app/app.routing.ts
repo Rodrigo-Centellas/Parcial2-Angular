@@ -5,6 +5,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './login/login.component';  // Asegúrate de que la ruta sea correcta
+import { UsuariosComponent } from './usuarios/usuarios.component';
+
 
 const routes: Routes =[
   {
@@ -15,7 +17,7 @@ const routes: Routes =[
   {
     path: 'login',  // Añadir la ruta de login
     component: LoginComponent
-  },
+  }, 
   {
     path: '',
     component: AdminLayoutComponent,

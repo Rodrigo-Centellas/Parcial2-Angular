@@ -13,6 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { UsuariosComponent } from './usuarios/usuarios.component';
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -32,8 +33,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    LoginComponent
-
+    LoginComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
