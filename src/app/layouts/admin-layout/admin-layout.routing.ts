@@ -8,7 +8,8 @@ import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
-import { UsuariosComponent } from '../../usuarios/usuarios.component';
+import { UsuariosComponent } from 'app/components/usuarios/usuarios.component';
+
 
 export const AdminLayoutRoutes: Routes = [
     // {

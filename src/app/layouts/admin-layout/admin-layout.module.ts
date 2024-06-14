@@ -17,7 +17,8 @@ import {MatRippleModule} from '@angular/material/core';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
-import { UsuariosComponent } from 'app/usuarios/usuarios.component';
+import { UsuariosComponent } from 'app/components/usuarios/usuarios.component';
+
 
 @NgModule({
   imports: [
@@ -41,7 +42,7 @@ import { UsuariosComponent } from 'app/usuarios/usuarios.component';
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
-    UsuariosComponent,
+    //UsuariosComponent,
   ]
 })
 

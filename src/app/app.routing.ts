@@ -5,7 +5,6 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './login/login.component';  // Asegúrate de que la ruta sea correcta
-import { UsuariosComponent } from './usuarios/usuarios.component';
 import { ModuloComponent } from './components/modulo/modulo.component'; // Importar el nuevo componente
 import { CarreraComponent } from './components/carrera/carrera.component';
 import { FacultadComponent } from './components/facultad/facultad.component';
