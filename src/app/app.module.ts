@@ -14,6 +14,16 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { UsuariosComponent } from './usuarios/usuarios.component';
+import { ModuloComponent } from './components/modulo/modulo.component';
+import { ModuloService } from './services/modulo.service';
+
+import { CarreraComponent } from './components/carrera/carrera.component';
+import { FacultadService } from './services/facultad.service';
+import { CarreraService } from './services/carrera.service';
+import { MateriaService } from './services/materia.service';
+import { MateriaComponent } from './components/materia/materia.component';
+import { MateriaDetallesComponent } from './components/materia-detalles/materia-detalles.component';
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -22,20 +32,25 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
     HttpClientModule,
     ComponentsModule,
     RouterModule,
-    AppRoutingModule,   
+    AppRoutingModule,
     MatInputModule,
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
     BrowserModule,
-
+    
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
     LoginComponent,
+    // UsuariosComponent,
+    ModuloComponent,
+    CarreraComponent,
+    MateriaComponent,
+    MateriaDetallesComponent
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ModuloService,FacultadService,CarreraService,MateriaComponent],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

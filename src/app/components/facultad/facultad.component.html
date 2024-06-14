@@ -1,0 +1,60 @@
+<!-- src/app/components/facultad/facultad.component.html -->
+<div class="main-content">
+  <div class="container-fluid">
+    <button mat-raised-button color="primary" class="btn btn-primary" (click)="addNew()">Nuevo</button>
+    <div class="row mt-4">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-info">
+            <h4 class="card-title">Tabla Facultades</h4>
+            <p class="card-category">Gestionar Facultades</p>
+          </div>
+          <div class="card-content table-responsive table-full-width">
+            <table class="table">
+              <thead class="text-primary">
+                <tr>
+                  <th>ID</th>
+                  <th>Nombre</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let facultad of facultades">
+                  <td>{{ facultad.id }}</td>
+                  <td>{{ facultad.nombre }}</td>
+                  <td>
+                    <button mat-icon-button color="primary" (click)="selectFacultad(facultad)">
+                      <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button color="warn" (click)="delete(facultad)">
+                      <mat-icon>delete</mat-icon>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="selectedFacultad" class="row mt-4">
+      <div class="col-md-6 offset-md-3">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">{{ selectedFacultad.id ? 'Editar' : 'Crear' }} Facultad</h4>
+          </div>
+          <div class="card-body">
+            <form (ngSubmit)="save()">
+              <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input id="nombre" [(ngModel)]="selectedFacultad.nombre" name="nombre" class="form-control" required />
+              </div>
+              <button type="submit" mat-raised-button color="primary">Guardar</button>
+              <button type="button" mat-raised-button (click)="cancel()">Cancelar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

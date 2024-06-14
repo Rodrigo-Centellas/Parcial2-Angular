@@ -17,7 +17,7 @@ interface AuthResponse {
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:8080/auth';  // Ajusta la URL según sea necesario
+  private apiUrl = 'http://localhost:8080/auth';  // Adjust the URL if needed
 
   constructor(private http: HttpClient) {}
 
@@ -27,5 +27,9 @@ export class AuthService {
 
   signup(user: any): Observable<AuthResponse> {
     return this.http.post<AuthResponse>(`${this.apiUrl}/signup`, user);
+  }
+
+  logout(): void {
+    localStorage.removeItem('jwtToken');
   }
 }

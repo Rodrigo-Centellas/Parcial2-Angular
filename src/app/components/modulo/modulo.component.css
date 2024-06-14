@@ -1,0 +1,65 @@
+.main-content {
+    padding: 20px;
+  }
+  
+  .card {
+    border-radius: 6px;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+    margin-bottom: 30px;
+    padding: 20px;
+  }
+  
+  .card-header {
+    padding: 10px 20px;
+    border-bottom: none;
+    background: transparent;
+    z-index: 3 !important;
+  }
+  
+  .card-header-primary {
+    background: linear-gradient(60deg, #ab47bc, #8e24aa);
+  }
+  
+  .card-header-info {
+    background: linear-gradient(60deg, #26c6da, #00acc1);
+  }
+  
+  .card-content {
+    padding: 15px 20px;
+  }
+  
+  .table {
+    margin-bottom: 0;
+  }
+  
+  .table thead th {
+    font-weight: 600;
+    color: #999;
+  }
+  
+  .table tbody tr td {
+    padding: 10px 8px;
+  }
+  
+  .mat-raised-button {
+    margin-top: 20px;
+  }
+  
+  .mat-icon-button {
+    margin: 0 5px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-control {
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+  }
+  
+  .btn {
+    margin-right: 10px;
+  }
+  

@@ -1,0 +1,82 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <button mat-raised-button color="primary" class="btn btn-primary" (click)="addNew()">Nuevo</button>
+    <div class="row mt-4">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-info">
+            <h4 class="card-title">Tabla Carreras</h4>
+            <p class="card-category">Gestionar Carreras</p>
+          </div>
+          <div class="card-content table-responsive table-full-width">
+            <table class="table">
+              <thead class="text-primary">
+                <tr>
+                  <th>ID</th>
+                  <th>Nombre</th>
+                  <th>Código</th>
+                  <th>Facultad</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let carrera of carreras">
+                  <td>{{ carrera.id }}</td>
+                  <td>{{ carrera.nombre }}</td>
+                  <td>{{ carrera.codigo }}</td>
+                  <td>{{ carrera.facultad.nombre }}</td>
+                  <td>
+                    <button mat-icon-button color="primary" (click)="selectCarrera(carrera)">
+                      <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button color="warn" (click)="delete(carrera)">
+                      <mat-icon>delete</mat-icon>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="selectedCarrera" class="row mt-4">
+      <div class="col-md-6 offset-md-3">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">{{ selectedCarrera.id ? 'Editar' : 'Crear' }} Carrera</h4>
+          </div>
+          <div class="card-body">
+            <form #carreraForm="ngForm" (ngSubmit)="save(carreraForm)">
+              <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input id="nombre" [(ngModel)]="selectedCarrera.nombre" name="nombre" class="form-control" required />
+                <div *ngIf="carreraForm.submitted && !selectedCarrera.nombre" class="text-danger">
+                  Nombre es requerido.
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="codigo">Código:</label>
+                <input id="codigo" [(ngModel)]="selectedCarrera.codigo" name="codigo" class="form-control" required />
+                <div *ngIf="carreraForm.submitted && !selectedCarrera.codigo" class="text-danger">
+                  Código es requerido.
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="facultad">Facultad:</label>
+                <select id="facultad" [(ngModel)]="selectedCarrera.facultad.id" name="facultad" class="form-control" required>
+                  <option *ngFor="let facultad of facultades" [value]="facultad.id">{{ facultad.nombre }}</option>
+                </select>
+                <div *ngIf="carreraForm.submitted && !selectedCarrera.facultad.id" class="text-danger">
+                  Facultad es requerida.
+                </div>
+              </div>
+              <button type="submit" mat-raised-button color="primary">Guardar</button>
+              <button type="button" mat-raised-button (click)="cancel()">Cancelar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

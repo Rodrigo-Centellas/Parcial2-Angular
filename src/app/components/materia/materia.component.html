@@ -1,0 +1,90 @@
+<div class="main-content">
+    <div class="container-fluid">
+      <button mat-raised-button color="primary" class="btn btn-primary" (click)="addNew()">Nuevo</button>
+      <div class="row mt-4">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-info">
+              <h4 class="card-title">Tabla Materias</h4>
+              <p class="card-category">Gestionar Materias</p>
+            </div>
+            <div class="card-content table-responsive table-full-width">
+              <table class="table">
+                <thead class="text-primary">
+                  <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Sigla</th>
+                    <th>Horas</th>
+                    <th>Nivel</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let materia of materias">
+                    <td>{{ materia.id }}</td>
+                    <td>{{ materia.nombre }}</td>
+                    <td>{{ materia.sigla }}</td>
+                    <td>{{ materia.horas }}</td>
+                    <td>{{ materia.nivel }}</td>
+                    <td>
+                      <button mat-icon-button color="primary" (click)="selectMateria(materia)">
+                        <mat-icon>edit</mat-icon>
+                      </button>
+                      <button mat-icon-button color="warn" (click)="delete(materia)">
+                        <mat-icon>delete</mat-icon>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="selectedMateria" class="row mt-4">
+        <div class="col-md-6 offset-md-3">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title">{{ selectedMateria.id ? 'Editar' : 'Crear' }} Materia</h4>
+            </div>
+            <div class="card-body">
+              <form (ngSubmit)="save()" #materiaForm="ngForm">
+                <div class="form-group">
+                  <label for="nombre">Nombre:</label>
+                  <input id="nombre" [(ngModel)]="selectedMateria.nombre" name="nombre" class="form-control" required />
+                  <div *ngIf="materiaForm.submitted && !materiaForm.controls.nombre?.valid" class="text-danger">
+                    Nombre es requerido.
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="sigla">Sigla:</label>
+                  <input id="sigla" [(ngModel)]="selectedMateria.sigla" name="sigla" class="form-control" required />
+                  <div *ngIf="materiaForm.submitted && !materiaForm.controls.sigla?.valid" class="text-danger">
+                    Sigla es requerido.
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="horas">Horas:</label>
+                  <input id="horas" [(ngModel)]="selectedMateria.horas" name="horas" type="number" class="form-control" required />
+                  <div *ngIf="materiaForm.submitted && !materiaForm.controls.horas?.valid" class="text-danger">
+                    Horas es requerido.
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="nivel">Nivel:</label>
+                  <input id="nivel" [(ngModel)]="selectedMateria.nivel" name="nivel" type="number" class="form-control" required />
+                  <div *ngIf="materiaForm.submitted && !materiaForm.controls.nivel?.valid" class="text-danger">
+                    Nivel es requerido.
+                  </div>
+                </div>
+                <button type="submit" mat-raised-button color="primary" [disabled]="!materiaForm.form.valid">Guardar</button>
+                <button type="button" mat-raised-button (click)="cancel()">Cancelar</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

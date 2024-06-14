@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       this.authService.login(this.loginForm.value).subscribe(
         response => {
-          localStorage.setItem('token', response.jtw);
+          localStorage.setItem('jwtToken', response.jtw);  // Asegúrate de que la clave sea 'jwtToken'
           this.router.navigate(['/dashboard']);
         },
         error => {
@@ -36,6 +36,11 @@ export class LoginComponent implements OnInit {
         }
       );
     }
+  }
+
+  logout(): void {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 
   get email() {
