@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, throwError } from 'rxjs';
 import { API_URL } from '../utilities/config';
 import { Usuario } from 'app/models/usuario';
+import { AuthService } from './auth.service';
 
 
 
@@ -11,24 +12,24 @@ import { Usuario } from 'app/models/usuario';
 })
 export class UserService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private authService: AuthService) { }
 
   getUsers(): Observable<Usuario[]> {
-    return this.http.get<Usuario[]>(`${API_URL}/users`);
+    return this.http.get<Usuario[]>(`${API_URL}/users`, this.authService.getHeaders());
   }
 
   createUser(user: Usuario): Observable<Usuario> {
-    return this.http.post<Usuario>(`${API_URL}/users`, user);
+    return this.http.post<Usuario>(`${API_URL}/users`, user, this.authService.getHeaders());
   }
 
   updateUser(id: number, userData: Usuario): Observable<Usuario> {
-    return this.http.put<Usuario>(`${API_URL}/users/${id}`, userData);
+    return this.http.put<Usuario>(`${API_URL}/users/${id}`, userData, this.authService.getHeaders());
 }
 
 
   deleteUser(id: number): Observable<Usuario> {
     const url = `${API_URL}/users/${id}`;
-    return this.http.delete<Usuario>(url)
+    return this.http.delete<Usuario>(url, this.authService.getHeaders())
       .pipe(
         catchError(this.handleError<any>('deleteUser'))
       );

@@ -1,6 +1,6 @@
 // src/app/services/auth.service.ts
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 interface LoginRequest {
@@ -31,5 +31,15 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem('jwtToken');
+  }
+
+  getHeaders() {
+    const token = localStorage.getItem('jwtToken');
+    return {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      })
+    };
   }
 }
