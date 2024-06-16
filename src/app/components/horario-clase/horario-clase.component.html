@@ -1,0 +1,84 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <button mat-raised-button color="primary" class="btn btn-primary" (click)="addNew()">Nuevo</button>
+    <div class="row mt-4">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-info">
+            <h4 class="card-title">Tabla Horarios por Clase</h4>
+            <p class="card-category">Gestionar Horarios por Clase</p>
+          </div>
+          <div class="card-content table-responsive table-full-width">
+            <table class="table">
+              <thead class="text-primary">
+                <tr>
+                  <th>ID</th>
+                  <th>Docente - Materia</th>
+                  <th>Clase id</th>
+                  <th>Horario</th>
+                  <th>Materia - Sigla</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let horarioClase of horarioClases">
+                  <td>{{ horarioClase.id }}</td>
+                  <td>{{ horarioClase.clase.user.name }} - {{ horarioClase.clase.materia.nombre }}</td>
+                  <td>{{horarioClase.clase.id}}</td>
+                  
+
+                  <td>{{ horarioClase.horario.dia }}: {{ horarioClase.horario.horarioInicio }} - {{ horarioClase.horario.horarioFin }}</td>
+                  <td>{{horarioClase.clase.materia.nombre}} - {{horarioClase.clase.materia.sigla}}</td>
+                  <td>
+                    <button mat-icon-button color="primary" (click)="selectHorarioClase(horarioClase)">
+                      <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button color="warn" (click)="delete(horarioClase)">
+                      <mat-icon>delete</mat-icon>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="selectedHorarioClase" class="row mt-4">
+      <div class="col-md-6 offset-md-3">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">{{ selectedHorarioClase.id ? 'Editar' : 'Crear' }} Horario por Clase</h4>
+          </div>
+          <div class="card-body">
+            <form #horarioClaseForm="ngForm" (ngSubmit)="save(horarioClaseForm)">
+              <div class="form-group">
+                <label for="clase">Clase:</label>
+                <select id="clase" [(ngModel)]="selectedHorarioClase.clase.id" name="clase" class="form-control" required>
+                  <option *ngFor="let clase of clases" [value]="clase.id">{{ clase.user.name }} - {{ clase.materia.nombre }}</option>
+                </select>
+                <div *ngIf="horarioClaseForm.submitted && !selectedHorarioClase.clase.id" class="text-danger">
+                  Clase es requerida.
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="horario">Horario:</label>
+                <select id="horario" [(ngModel)]="selectedHorarioClase.horario.id" name="horario" class="form-control" required>
+                  <option *ngFor="let horario of horarios" [value]="horario.id">{{ horario.dia }}: {{ horario.horarioInicio }} - {{ horario.horarioFin }}</option>
+                </select>
+                <div *ngIf="horarioClaseForm.submitted && !selectedHorarioClase.horario.id" class="text-danger">
+                  Horario es requerido.
+                </div>
+              </div>
+              <div *ngIf="errorMessage" class="text-danger">
+                {{ errorMessage }}
+              </div>
+              <button type="submit" mat-raised-button color="primary">Guardar</button>
+              <button type="button" mat-raised-button (click)="cancel()">Cancelar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

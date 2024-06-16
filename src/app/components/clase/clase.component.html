@@ -1,0 +1,95 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <button mat-raised-button color="primary" class="btn btn-primary" (click)="addNew()">Nuevo</button>
+    <div class="row mt-4">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-info">
+            <h4 class="card-title">Tabla Clases</h4>
+            <p class="card-category">Gestionar Clases</p>
+          </div>
+          <div class="card-content table-responsive table-full-width">
+            <table class="table">
+              <thead class="text-primary">
+                <tr>
+                  <th>ID</th>
+                  <th>Cupo</th>
+                  <th>Docente</th>
+                  <th>Grupo</th>
+                  <th>Materia</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let clase of clases">
+                  <td>{{ clase.id }}</td>
+                  <td>{{ clase.cupo }}</td>
+                  <td>{{ clase.user.name }}</td>
+                  <td>{{ clase.grupo.nombre }}</td>
+                  <td>{{ clase.materia.nombre }}</td>
+                  <td>
+                    <button mat-icon-button color="primary" (click)="selectClase(clase)">
+                      <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button color="warn" (click)="delete(clase)">
+                      <mat-icon>delete</mat-icon>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="selectedClase" class="row mt-4">
+      <div class="col-md-6 offset-md-3">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">{{ selectedClase.id ? 'Editar' : 'Crear' }} Clase</h4>
+          </div>
+          <div class="card-body">
+            <form #claseForm="ngForm" (ngSubmit)="save(claseForm)">
+              <div class="form-group">
+                <label for="cupo">Cupo:</label>
+                <input id="cupo" [(ngModel)]="selectedClase.cupo" name="cupo" class="form-control" required />
+                <div *ngIf="claseForm.submitted && !selectedClase.cupo" class="text-danger">
+                  Cupo es requerido.
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="user">Docente:</label>
+                <select id="user" [(ngModel)]="selectedClase.user.id" name="user" class="form-control" required>
+                  <option *ngFor="let user of usuarios" [value]="user.id">{{ user.name }}</option>
+                </select>
+                <div *ngIf="claseForm.submitted && !selectedClase.user.id" class="text-danger">
+                  Docente es requerido.
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="grupo">Grupo:</label>
+                <select id="grupo" [(ngModel)]="selectedClase.grupo.id" name="grupo" class="form-control" required>
+                  <option *ngFor="let grupo of grupos" [value]="grupo.id">{{ grupo.nombre }}</option>
+                </select>
+                <div *ngIf="claseForm.submitted && !selectedClase.grupo.id" class="text-danger">
+                  Grupo es requerido.
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="materia">Materia:</label>
+                <select id="materia" [(ngModel)]="selectedClase.materia.id" name="materia" class="form-control" required>
+                  <option *ngFor="let materia of materias" [value]="materia.id">{{ materia.nombre }}</option>
+                </select>
+                <div *ngIf="claseForm.submitted && !selectedClase.materia.id" class="text-danger">
+                  Materia es requerida.
+                </div>
+              </div>
+              <button type="submit" mat-raised-button color="primary">Guardar</button>
+              <button type="button" mat-raised-button (click)="cancel()">Cancelar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

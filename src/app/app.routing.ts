@@ -11,6 +11,12 @@ import { CarreraComponent } from './components/carrera/carrera.component';
 import { FacultadComponent } from './components/facultad/facultad.component';
 import { MateriaComponent } from './components/materia/materia.component';
 import { MateriaDetallesComponent } from './components/materia-detalles/materia-detalles.component';
+import { LicenciaComponent } from './components/licencia/licencia.component';
+import { DetalleLicenciaComponent } from './components/detalle-licencia/detalle-licencia.component';
+import { ClaseComponent } from './components/clase/clase.component';
+import { AsignarClaseComponent } from './components/asignar-clase/asignar-clase.component';
+import { AulaClaseComponent } from './components/aula-clase/aula-clase.component';
+import { HorarioClaseComponent } from './components/horario-clase/horario-clase.component';
 
 const routes: Routes =[
   {
@@ -28,6 +34,18 @@ const routes: Routes =[
     component: LoginComponent
   },
   { path: 'materias', component: MateriaComponent },
+  //-----------------PROGRAMACION ACADEMICA------------
+  { path: 'clases', component: ClaseComponent },
+  { path: 'clases-asignacion', component: AsignarClaseComponent },
+  { path: 'Aula-clase', component: AulaClaseComponent },
+  { path: 'Horario-clase', component: HorarioClaseComponent },
+  //licencias
+
+  { path: 'licencias', component: LicenciaComponent },
+  { path: 'detalle-licencia/:id', component: DetalleLicenciaComponent },
+  { path: '', redirectTo: 'licencias', pathMatch: 'full' },
+
+
   { path: 'materia-detalle', component: MateriaDetallesComponent },
 
   {

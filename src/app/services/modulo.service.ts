@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Modulo } from '../models/modulo';
+import { API_URL_API } from 'app/utilities/config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ModuloService {
-  private apiUrl = 'http://localhost:8080/api/modulos';
+ 
+  private apiUrl = `${API_URL_API}/modulos`;
 
   constructor(private http: HttpClient) { }
 

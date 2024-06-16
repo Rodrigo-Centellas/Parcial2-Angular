@@ -1,0 +1,84 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <button mat-raised-button color="primary" class="btn btn-primary" (click)="addNew()">Nuevo</button>
+    <div class="row mt-4">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-info">
+            <h4 class="card-title">Tabla Aulas por Clase</h4>
+            <p class="card-category">Gestionar Aulas por Clase</p>
+          </div>
+          <div class="card-content table-responsive table-full-width">
+            <table class="table">
+              <thead class="text-primary">
+                <tr>
+                  <th>ID</th>
+                  <th>Docente - Materia</th>
+                  <th>Clase id</th>
+                  <th>Grupo</th>
+                  <th>Aula id</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let aulaClase of aulaClases">
+                  <td>{{ aulaClase.id }}</td>
+                  <td>{{ aulaClase.clase.user.name }} - {{ aulaClase.clase.materia.nombre }}</td>
+                  <td>{{aulaClase.clase.id}}</td>
+                  <td>{{aulaClase.clase.grupo.nombre}}</td>
+                  <td>{{ aulaClase.aula.nombre }} </td>
+                  
+                
+                  <td>
+                    <button mat-icon-button color="primary" (click)="selectAulaClase(aulaClase)">
+                      <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button color="warn" (click)="delete(aulaClase)">
+                      <mat-icon>delete</mat-icon>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="selectedAulaClase" class="row mt-4">
+      <div class="col-md-6 offset-md-3">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">{{ selectedAulaClase.id ? 'Editar' : 'Crear' }} Aula por Clase</h4>
+          </div>
+          <div class="card-body">
+            <form #aulaClaseForm="ngForm" (ngSubmit)="save(aulaClaseForm)">
+              <div class="form-group">
+                <label for="clase">Clase:</label>
+                <select id="clase" [(ngModel)]="selectedAulaClase.clase.id" name="clase" class="form-control" required>
+                  <option *ngFor="let clase of clases" [value]="clase.id">{{ clase.user.name }} - {{ clase.materia.nombre }}</option>
+                </select>
+                <div *ngIf="aulaClaseForm.submitted && !selectedAulaClase.clase.id" class="text-danger">
+                  Clase es requerida.
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="aula">Aula:</label>
+                <select id="aula" [(ngModel)]="selectedAulaClase.aula.id" name="aula" clas="form-control" required>
+                  <option *ngFor="let aula of aulas" [value]="aula.id">{{ aula.nombre }}</option>
+                </select>
+                <div *ngIf="aulaClaseForm.submitted && !selectedAulaClase.aula.id" class="text-danger">
+                  Aula es requerida.
+                </div>
+              </div>
+              <div *ngIf="errorMessage" class="text-danger">
+                {{ errorMessage }}
+              </div>
+              <button type="submit" mat-raised-button color="primary">Guardar</button>
+              <button type="button" mat-raised-button (click)="cancel()">Cancelar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

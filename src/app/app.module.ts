@@ -23,6 +23,13 @@ import { CarreraService } from './services/carrera.service';
 import { MateriaService } from './services/materia.service';
 import { MateriaComponent } from './components/materia/materia.component';
 import { MateriaDetallesComponent } from './components/materia-detalles/materia-detalles.component';
+import { LicenciaComponent } from './components/licencia/licencia.component';
+import { DetalleLicenciaComponent } from './components/detalle-licencia/detalle-licencia.component';
+import { LicenciaService } from './services/licencia.service';
+import { ClaseComponent } from './components/clase/clase.component';
+import { AsignarClaseComponent } from './components/asignar-clase/asignar-clase.component';
+import { AulaClaseComponent } from './components/aula-clase/aula-clase.component';
+import { HorarioClaseComponent } from './components/horario-clase/horario-clase.component';
 
 @NgModule({
   imports: [
@@ -44,13 +51,20 @@ import { MateriaDetallesComponent } from './components/materia-detalles/materia-
     AppComponent,
     AdminLayoutComponent,
     LoginComponent,
-    // UsuariosComponent,
+    // UsuariosComponent,s
     ModuloComponent,
     CarreraComponent,
     MateriaComponent,
-    MateriaDetallesComponent
+    MateriaDetallesComponent,
+    LicenciaComponent,
+    DetalleLicenciaComponent,
+    ClaseComponent,
+    AsignarClaseComponent,
+    HorarioClaseComponent,
+    AulaClaseComponent
   ],
-  providers: [ModuloService,FacultadService,CarreraService,MateriaComponent],
+  providers: [ModuloService,FacultadService,CarreraService,MateriaComponent,
+    LicenciaComponent,ClaseComponent,AsignarClaseComponent,AulaClaseComponent,HorarioClaseComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

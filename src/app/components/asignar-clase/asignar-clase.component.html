@@ -1,0 +1,83 @@
+<!-- src/app/components/asignar-clase/asignar-clase.component.html -->
+<div class="main-content">
+  <div class="container-fluid">
+    <h2>Asignar Horarios y Aulas a Clase</h2>
+    <div class="row mt-4">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-info">
+            <h4 class="card-title">Seleccionar Clase</h4>
+          </div>
+          <div class="card-content table-responsive table-full-width">
+            <table class="table">
+              <thead class="text-primary">
+                <tr>
+                  <th>ID</th>
+                  <th>Cupo</th>
+                  <th>Docente</th>
+                  <th>Email Docente</th>
+                  <th>CI Docente</th>
+                  <th>Dirección Docente</th>
+                  <th>Grupo</th>
+                  <th>Materia</th>
+                  <th>Sigla</th>
+                  <th>Horas</th>
+                  <th>Nivel</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let clase of clases">
+                  <td>{{ clase.id }}</td>
+                  <td>{{ clase.cupo }}</td>
+                  <td>{{ clase.user.name }}</td>
+                  <td>{{ clase.user.email }}</td>
+                  <td>{{ clase.user.ci }}</td>
+                  <td>{{ clase.user.direccion }}</td>
+                  <td>{{ clase.grupo.nombre }}</td>
+                  <td>{{ clase.materia.nombre }}</td>
+                  <td>{{ clase.materia.sigla }}</td>
+                  <td>{{ clase.materia.horas }}</td>
+                  <td>{{ clase.materia.nivel }}</td>
+                  <td>
+                    <button mat-icon-button color="primary" (click)="selectClase(clase)">
+                      <mat-icon>edit</mat-icon>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="selectedClase" class="row mt-4">
+      <div class="col-md-6 offset-md-3">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Asignar Horarios y Aulas</h4>
+          </div>
+          <div class="card-body">
+            <form (ngSubmit)="save()">
+              <div class="form-group">
+                <label for="horarios">Horarios:</label>
+                <select multiple id="horarios" [(ngModel)]="selectedHorarios" name="horarios" class="form-control">
+                  <option *ngFor="let horario of horarios" [ngValue]="horario">{{ horario.dia }}: {{ horario.horarioInicio }} - {{ horario.horarioFin }}</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="aulas">Aulas:</label>
+                <select multiple id="aulas" [(ngModel)]="selectedAulas" name="aulas" class="form-control">
+                  <option *ngFor="let aula of aulas" [ngValue]="aula">{{ aula.nombre }} (Capacidad: {{ aula.capacidad }})</option>
+                </select>
+              </div>
+              <button type="submit" mat-raised-button color="primary">Guardar</button>
+              <button type="button" mat-raised-button (click)="cancel()">Cancelar</button>
+              <div *ngIf="message" class="alert alert-info mt-3">{{ message }}</div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

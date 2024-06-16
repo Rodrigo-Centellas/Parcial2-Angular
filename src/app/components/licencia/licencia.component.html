@@ -1,0 +1,87 @@
+<!-- src/app/components/licencia/licencia.component.html -->
+<div class="main-content">
+    <div class="container-fluid">
+      <div class="row mt-4">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-info">
+              <h4 class="card-title">Tabla Licencias</h4>
+              <p class="card-category">Gestionar Licencias</p>
+            </div>
+            <div class="card-content table-responsive table-full-width">
+              <table class="table">
+                <thead class="text-primary">
+                  <tr>
+                    <th>ID</th>
+                    <th>Motivo</th>
+                    <th>Inicio</th>
+                    <th>Fin</th>
+                    <th>Estado</th>
+                    <th>Usuario</th>
+                    <th class="text-center">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let licencia of licencias" (click)="selectLicencia(licencia)" style="cursor: pointer;">
+                    <td>{{ licencia.id }}</td>
+                    <td>{{ licencia.motivo }}</td>
+                    <td>{{ licencia.inicio | date }}</td>
+                    <td>{{ licencia.fin | date }}</td>
+                    <td>{{ licencia.estado }}</td>
+                    <td>{{ licencia.user.name }}</td>
+                    <td class="text-center">
+                      <div class="action-buttons">
+                        <a mat-icon-button color="primary" [routerLink]="['/detalle-licencia', licencia.id]">
+                          <mat-icon>Ver detalles</mat-icon>
+                        </a>
+                        <!-- <button mat-icon-button color="warn" (click)="updateLicenciaStatus(licencia, 'rechazada'); $event.stopPropagation()">
+                          <mat-icon>close</mat-icon>
+                        </button> -->
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="selectedLicencia" class="row mt-4">
+        <div class="col-md-6 offset-md-3">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title">Detalles de la Licencia</h4>
+            </div>
+            <div class="card-body">
+              <form (ngSubmit)="updateLicenciaStatus('aprobada')" #licenciaForm="ngForm">
+                <div class="form-group">
+                  <label for="motivo">Motivo:</label>
+                  <input id="motivo" [(ngModel)]="selectedLicencia.motivo" name="motivo" class="form-control" disabled />
+                </div>
+                <div class="form-group">
+                  <label for="inicio">Inicio:</label>
+                  <input id="inicio" [(ngModel)]="selectedLicencia.inicio" name="inicio" class="form-control" disabled />
+                </div>
+                <div class="form-group">
+                  <label for="fin">Fin:</label>
+                  <input id="fin" [(ngModel)]="selectedLicencia.fin" name="fin" class="form-control" disabled />
+                </div>
+                <div class="form-group">
+                  <label for="user">Usuario:</label>
+                  <input id="user" [(ngModel)]="selectedLicencia.user.name" name="user" class="form-control" disabled />
+                </div>
+                <div class="form-group">
+                  <label for="estado">Estado:</label>
+                  <input id="estado" [(ngModel)]="selectedLicencia.estado" name="estado" class="form-control" disabled />
+                </div>
+                <button type="submit" mat-raised-button color="primary" [disabled]="selectedLicencia.estado !== 'pendiente'">Aprobar</button>
+                <button type="button" mat-raised-button color="warn" (click)="updateLicenciaStatus(selectedLicencia, 'rechazada')">Rechazar</button>
+                <button type="button" mat-raised-button (click)="cancel()">Cancelar</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

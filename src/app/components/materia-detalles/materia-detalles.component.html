@@ -1,4 +1,4 @@
-<div class="main-content">
+<!-- <div class="main-content">
     <div class="container-fluid">
       <button mat-raised-button color="primary" class="btn btn-primary" (click)="addNew()">Nuevo</button>
       <div class="row mt-4">
@@ -62,6 +62,91 @@
                   </select>
                   <div *ngIf="materiaDetallesForm.submitted && !materiaDetallesForm.controls.materia?.valid" class="text-danger">
                     Materia es requerido.
+                  </div>
+                </div>
+                <button type="submit" mat-raised-button color="primary" [disabled]="!materiaDetallesForm.form.valid">Guardar</button>
+                <button type="button" mat-raised-button (click)="cancel()">Cancelar</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   -->
+
+
+
+   <div class="main-content">
+    <div class="container-fluid">
+      <button mat-raised-button color="primary" class="btn btn-primary" (click)="addNew()">Nuevo</button>
+      <div class="row mt-4">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-info">
+              <h4 class="card-title">Tabla Materia-Detalles</h4>
+              <p class="card-category">Gestionar Materia-Detalles</p>
+            </div>
+            <div class="card-content table-responsive table-full-width">
+              <table class="table">
+                <thead class="text-primary">
+                  <tr>
+                    <th>ID</th>
+                    <th>Carrera</th>
+                    <th>Materia</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let md of materiaDetalles">
+                    <td>{{ md.id }}</td>
+                    <td>{{ md.carrera.nombre }}</td>
+                    <td>{{ md.materia.nombre }}</td>
+                    <td>
+                      <button mat-icon-button color="primary" (click)="selectMateriaDetalles(md)">
+                        <mat-icon>edit</mat-icon>
+                      </button>
+                      <button mat-icon-button color="warn" (click)="delete(md)">
+                        <mat-icon>delete</mat-icon>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="selectedMateriaDetalles" class="row mt-4">
+        <div class="col-md-6 offset-md-3">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title">{{ selectedMateriaDetalles.id ? 'Editar' : 'Crear' }} Materia-Detalles</h4>
+            </div>
+            <div class="card-body">
+              <form (ngSubmit)="save()" #materiaDetallesForm="ngForm">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="carrera">Carrera:</label>
+                      <select id="carrera" [(ngModel)]="selectedMateriaDetalles.carrera.id" name="carrera" class="form-control" required>
+                        <option *ngFor="let carrera of carreras" [value]="carrera.id">{{ carrera.nombre }}</option>
+                      </select>
+                      <div *ngIf="materiaDetallesForm.submitted && !materiaDetallesForm.controls.carrera?.valid" class="text-danger">
+                        Carrera es requerido.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="materia">Materia:</label>
+                      <select id="materia" [(ngModel)]="selectedMateriaDetalles.materia.id" name="materia" class="form-control" required>
+                        <option *ngFor="let materia of materias" [value]="materia.id">{{ materia.nombre }}</option>
+                      </select>
+                      <div *ngIf="materiaDetallesForm.submitted && !materiaDetallesForm.controls.materia?.valid" class="text-danger">
+                        Materia es requerido.
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <button type="submit" mat-raised-button color="primary" [disabled]="!materiaDetallesForm.form.valid">Guardar</button>
