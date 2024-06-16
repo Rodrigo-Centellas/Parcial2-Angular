@@ -1,0 +1,38 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <button mat-raised-button class="btn btn-primary" (click)="openDialog()">Nuevo</button>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-warning">
+                        <h4 class="card-title">Tabla Aulas</h4>
+                        <p class="card-category">Gestionar Aulas</p>
+                    </div>
+                    <div class="card-content table-responsive table-full-width">
+                        <table class="table">
+                            <thead class="text-danger">
+                                <th>Nombre</th>
+                                <th>Modulo</th>
+                                <th>Capacidad</th>
+                                <th>Acciones</th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let aula of aulas">
+                                    <td>{{ aula.nombre }}</td>
+                                    <td>{{ aula.modulo.nombre }}</td>
+                                    <td>{{ aula.capacidad }}</td>
+                                    <td>
+                                        <button mat-raised-button class="btn btn-warning btn-sm"
+                                            (click)="editAula(aula.id)">Editar</button>
+                                        <button mat-raised-button class="btn btn-danger btn-sm"
+                                            (click)="confirmDelete(aula.id)">Borrar</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

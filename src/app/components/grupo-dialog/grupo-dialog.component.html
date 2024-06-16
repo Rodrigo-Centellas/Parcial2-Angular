@@ -1,0 +1,13 @@
+<h2 mat-dialog-title>Nuevo Usuario</h2>
+<mat-dialog-content>
+    <form [formGroup]="grupoForm">
+        <mat-form-field>
+            <mat-label>Nombre</mat-label>
+            <input matInput formControlName="nombre" required>
+        </mat-form-field>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button (click)="onCancel()">Cancelar</button>
+    <button mat-button (click)="onSave()">Guardar</button>
+</mat-dialog-actions>

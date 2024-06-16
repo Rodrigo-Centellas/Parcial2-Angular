@@ -17,22 +17,22 @@ const routes: Routes =[
     redirectTo: 'login',  // Redirigir a login en lugar de dashboard
     pathMatch: 'full',
   },
-  { path: 'carreras', component: CarreraComponent },
-  {
-    path: 'facultades',
-    component: FacultadComponent
-  },
+  // { path: 'carreras', component: CarreraComponent },
+  // {
+  //   path: 'facultades',
+  //   component: FacultadComponent
+  // },
   {
     path: 'login',  // Añadir la ruta de login
     component: LoginComponent
   },
-  { path: 'materias', component: MateriaComponent },
-  { path: 'materia-detalle', component: MateriaDetallesComponent },
+  // { path: 'materias', component: MateriaComponent },
+  // { path: 'materia-detalle', component: MateriaDetallesComponent },
 
-  {
-    path: 'modulos',  // Añadir la ruta de modulos
-    component: ModuloComponent
-  },
+  // {
+  //   path: 'modulos',  // Añadir la ruta de modulos
+  //   component: ModuloComponent
+  // },
   {
     path: '',
     component: AdminLayoutComponent,

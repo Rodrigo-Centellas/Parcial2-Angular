@@ -29,6 +29,14 @@ import { MateriaComponent } from './components/materia/materia.component';
 import { MateriaDetallesComponent } from './components/materia-detalles/materia-detalles.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { AulaComponent } from './components/aula/aula.component';
+import { AulaDialogComponent } from './components/aula-dialog/aula-dialog.component';
+import { Grupo } from './models/grupo';
+import { GrupoComponent } from './components/grupo/grupo.component';
+import { GrupoDialogComponent } from './components/grupo-dialog/grupo-dialog.component';
+import { SemestreDialogComponent } from './components/semestre-dialog/semestre-dialog.component';
+import { SemestreComponent } from './components/semestre/semestre.component';
+
 
 
 @NgModule({
@@ -55,11 +63,17 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
     LoginComponent,
     UsuariosComponent,
     UserDialogComponent,
+    GrupoComponent,
+    GrupoDialogComponent,
     ModuloComponent,
+    AulaComponent,
+    AulaDialogComponent,
     CarreraComponent,
     MateriaComponent,
     MateriaDetallesComponent,
     ConfirmDialogComponent,
+    SemestreDialogComponent,
+    SemestreComponent,
   ],
   providers: [ModuloService,FacultadService,CarreraService,MateriaComponent],
   bootstrap: [AppComponent],
