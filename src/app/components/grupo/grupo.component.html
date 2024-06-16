@@ -1,0 +1,34 @@
+<div class="main-content">
+    <div class="container-fluid">
+      <button mat-raised-button class="btn btn-primary" (click)="openDialog()">Nuevo</button>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-warning">
+              <h4 class="card-title">Tabla Grupos</h4>
+              <p class="card-category">Gestionar Grupos</p>
+            </div>
+            <div class="card-content table-responsive table-full-width">
+              <table class="table">
+                <thead class="text-danger">
+                  <th>Nombre</th>                  
+                  <th>Acciones</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let grupo of grupos">
+                    <td>{{ grupo.nombre }}</td>                   
+                    <td>
+                      <button mat-raised-button class="btn btn-warning btn-sm"
+                        (click)="editGrupo(grupo.id)">Editar</button>
+                      <button mat-raised-button class="btn btn-danger btn-sm"
+                        (click)="confirmDelete(grupo.id)">Borrar</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -5,7 +5,6 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './login/login.component';  // Asegúrate de que la ruta sea correcta
-import { UsuariosComponent } from './usuarios/usuarios.component';
 import { ModuloComponent } from './components/modulo/modulo.component'; // Importar el nuevo componente
 import { CarreraComponent } from './components/carrera/carrera.component';
 import { FacultadComponent } from './components/facultad/facultad.component';
@@ -24,34 +23,22 @@ const routes: Routes =[
     redirectTo: 'login',  // Redirigir a login en lugar de dashboard
     pathMatch: 'full',
   },
-  { path: 'carreras', component: CarreraComponent },
-  {
-    path: 'facultades',
-    component: FacultadComponent
-  },
+  // { path: 'carreras', component: CarreraComponent },
+  // {
+  //   path: 'facultades',
+  //   component: FacultadComponent
+  // },
   {
     path: 'login',  // Añadir la ruta de login
     component: LoginComponent
   },
-  { path: 'materias', component: MateriaComponent },
-  //-----------------PROGRAMACION ACADEMICA------------
-  { path: 'clases', component: ClaseComponent },
-  { path: 'clases-asignacion', component: AsignarClaseComponent },
-  { path: 'Aula-clase', component: AulaClaseComponent },
-  { path: 'Horario-clase', component: HorarioClaseComponent },
-  //licencias
+  // { path: 'materias', component: MateriaComponent },
+  // { path: 'materia-detalle', component: MateriaDetallesComponent },
 
-  { path: 'licencias', component: LicenciaComponent },
-  { path: 'detalle-licencia/:id', component: DetalleLicenciaComponent },
-  { path: '', redirectTo: 'licencias', pathMatch: 'full' },
-
-
-  { path: 'materia-detalle', component: MateriaDetallesComponent },
-
-  {
-    path: 'modulos',  // Añadir la ruta de modulos
-    component: ModuloComponent
-  },
+  // {
+  //   path: 'modulos',  // Añadir la ruta de modulos
+  //   component: ModuloComponent
+  // },
   {
     path: '',
     component: AdminLayoutComponent,

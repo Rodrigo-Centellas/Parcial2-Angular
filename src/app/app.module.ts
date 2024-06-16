@@ -13,9 +13,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { UsuariosComponent } from './usuarios/usuarios.component';
 import { ModuloComponent } from './components/modulo/modulo.component';
 import { ModuloService } from './services/modulo.service';
+import { UsuariosComponent } from './components/usuarios/usuarios.component';
+import { UserDialogComponent } from './components/user-dialog/user-dialog.component';
+
+
+import { MatSelectModule } from '@angular/material/select';
 
 import { CarreraComponent } from './components/carrera/carrera.component';
 import { FacultadService } from './services/facultad.service';
@@ -23,16 +27,21 @@ import { CarreraService } from './services/carrera.service';
 import { MateriaService } from './services/materia.service';
 import { MateriaComponent } from './components/materia/materia.component';
 import { MateriaDetallesComponent } from './components/materia-detalles/materia-detalles.component';
-import { LicenciaComponent } from './components/licencia/licencia.component';
-import { DetalleLicenciaComponent } from './components/detalle-licencia/detalle-licencia.component';
-import { LicenciaService } from './services/licencia.service';
-import { ClaseComponent } from './components/clase/clase.component';
-import { AsignarClaseComponent } from './components/asignar-clase/asignar-clase.component';
-import { AulaClaseComponent } from './components/aula-clase/aula-clase.component';
-import { HorarioClaseComponent } from './components/horario-clase/horario-clase.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { AulaComponent } from './components/aula/aula.component';
+import { AulaDialogComponent } from './components/aula-dialog/aula-dialog.component';
+import { Grupo } from './models/grupo';
+import { GrupoComponent } from './components/grupo/grupo.component';
+import { GrupoDialogComponent } from './components/grupo-dialog/grupo-dialog.component';
+import { SemestreDialogComponent } from './components/semestre-dialog/semestre-dialog.component';
+import { SemestreComponent } from './components/semestre/semestre.component';
+
+
 
 @NgModule({
   imports: [
+    BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
@@ -43,25 +52,28 @@ import { HorarioClaseComponent } from './components/horario-clase/horario-clase.
     MatInputModule,
     MatButtonModule,
     MatCardModule,
+    MatSelectModule,
     MatFormFieldModule,
     BrowserModule,
-    
+    MatDialogModule,
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
     LoginComponent,
-    // UsuariosComponent,s
+    UsuariosComponent,
+    UserDialogComponent,
+    GrupoComponent,
+    GrupoDialogComponent,
     ModuloComponent,
+    AulaComponent,
+    AulaDialogComponent,
     CarreraComponent,
     MateriaComponent,
     MateriaDetallesComponent,
-    LicenciaComponent,
-    DetalleLicenciaComponent,
-    ClaseComponent,
-    AsignarClaseComponent,
-    HorarioClaseComponent,
-    AulaClaseComponent
+    ConfirmDialogComponent,
+    SemestreDialogComponent,
+    SemestreComponent,
   ],
   providers: [ModuloService,FacultadService,CarreraService,MateriaComponent,
     LicenciaComponent,ClaseComponent,AsignarClaseComponent,AulaClaseComponent,HorarioClaseComponent],

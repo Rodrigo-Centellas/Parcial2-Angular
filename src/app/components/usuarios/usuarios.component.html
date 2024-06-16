@@ -1,6 +1,6 @@
 <div class="main-content">
   <div class="container-fluid">
-    <button mat-raised-button class="btn btn-primary">Nuevo</button>
+    <button mat-raised-button class="btn btn-primary" (click)="openDialog()">Nuevo</button>
     <div class="row">
       <div class="col-md-12">
         <div class="card">
@@ -25,14 +25,18 @@
                   <td>{{ usuario.rol }}</td>
                   <td>{{ usuario.ci }}</td>
                   <td>{{ usuario.direccion }}</td>
-                  <td>Editar o Borrar</td>
+                  <td>
+                    <button mat-raised-button class="btn btn-warning btn-sm"
+                      (click)="editUser(usuario.id)">Editar</button>
+                    <button mat-raised-button class="btn btn-danger btn-sm"
+                      (click)="confirmDelete(usuario.id)">Borrar</button>
+                  </td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </div>

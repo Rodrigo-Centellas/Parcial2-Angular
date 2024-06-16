@@ -1,7 +1,9 @@
-// src/app/models/aula.ts
 export interface Aula {
     id: number;
     nombre: string;
-    capacidad: number;
+    capacidad: string;
+    modulo: {
+      id: number;
+      nombre: string;
+    };
   }
-  

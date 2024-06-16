@@ -1,0 +1,25 @@
+<h2 mat-dialog-title>Nuevo Usuario</h2>
+<mat-dialog-content>
+    <form [formGroup]="aulaForm">
+        <mat-form-field>
+            <mat-label>Nombre</mat-label>
+            <input matInput formControlName="nombre" required>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Capacidad</mat-label>
+            <input matInput formControlName="capacidad" required>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Modulo</mat-label>
+            <mat-select formControlName="modulo">
+                <mat-option *ngFor="let modulo of modulos" [value]="modulo.id">
+                    {{ modulo.nombre }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button (click)="onCancel()">Cancelar</button>
+    <button mat-button (click)="onSave()">Guardar</button>
+</mat-dialog-actions>
