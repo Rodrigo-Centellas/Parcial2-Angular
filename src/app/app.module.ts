@@ -36,6 +36,11 @@ import { GrupoComponent } from './components/grupo/grupo.component';
 import { GrupoDialogComponent } from './components/grupo-dialog/grupo-dialog.component';
 import { SemestreDialogComponent } from './components/semestre-dialog/semestre-dialog.component';
 import { SemestreComponent } from './components/semestre/semestre.component';
+import { LicenciaComponent } from './components/licencia/licencia.component';
+import { ClaseComponent } from './components/clase/clase.component';
+import { AsignarClaseComponent } from './components/asignar-clase/asignar-clase.component';
+import { HorarioClaseComponent } from './components/horario-clase/horario-clase.component';
+import { AulaClaseComponent } from './components/aula-clase/aula-clase.component';
 
 
 
@@ -76,7 +81,7 @@ import { SemestreComponent } from './components/semestre/semestre.component';
     SemestreComponent,
   ],
   providers: [ModuloService,FacultadService,CarreraService,MateriaComponent,
-    LicenciaComponent,ClaseComponent,AsignarClaseComponent,AulaClaseComponent,HorarioClaseComponent],
+    LicenciaComponent,ClaseComponent,AsignarClaseComponent,AulaClaseComponent,HorarioClaseComponent,AulaDialogComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

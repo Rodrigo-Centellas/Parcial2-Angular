@@ -3,7 +3,7 @@ import { UserService } from '../../services/user.service';
 import { MatDialog } from '@angular/material/dialog';
 import { UserDialogComponent } from '../user-dialog/user-dialog.component';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component'; // Importa el componente de confirmación
-import { Usuario } from 'app/models/usuario';
+import { User } from 'app/models/usuario';
 
 
 @Component({
@@ -44,7 +44,7 @@ export class UsuariosComponent implements OnInit {
     });
   }
 
-  openEditDialog(usuario: Usuario): void {
+  openEditDialog(usuario: User): void {
     const dialogRef = this.dialog.open(UserDialogComponent, {
       width: '400px',
       data: { usuario } // Pasa el usuario al diálogo

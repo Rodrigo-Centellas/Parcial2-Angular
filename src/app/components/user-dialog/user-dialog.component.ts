@@ -2,7 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { UserService } from '../../services/user.service';
-import { Usuario } from 'app/models/usuario';
+import { User } from 'app/models/usuario';
 
 
 @Component({
@@ -19,7 +19,7 @@ export class UserDialogComponent implements OnInit {
     private userService: UserService,
     public dialogRef: MatDialogRef<UserDialogComponent>,
     private formBuilder: FormBuilder,
-    @Inject(MAT_DIALOG_DATA) public data: { usuario: Usuario }
+    @Inject(MAT_DIALOG_DATA) public data: { usuario: User }
   ) { }
 
   ngOnInit(): void {
@@ -54,7 +54,7 @@ export class UserDialogComponent implements OnInit {
     }
   }
 
-  private createUser(userData: Usuario): void {
+  private createUser(userData: User): void {
     this.userService.createUser(userData).subscribe(
       response => {
         this.dialogRef.close(response); // Cerrar el diálogo y devolver la respuesta
@@ -65,7 +65,7 @@ export class UserDialogComponent implements OnInit {
     );
   }
 
-  private updateUser(userData: Usuario): void {
+  private updateUser(userData: User): void {
     const userId = this.data.usuario.id;
     this.userService.updateUser(userId, userData).subscribe(
       () => {

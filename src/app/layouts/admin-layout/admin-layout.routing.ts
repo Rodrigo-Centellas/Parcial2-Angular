@@ -17,6 +17,9 @@ import { ModuloComponent } from 'app/components/modulo/modulo.component';
 import { MateriaComponent } from 'app/components/materia/materia.component';
 import { MateriaDetallesComponent } from 'app/components/materia-detalles/materia-detalles.component';
 import { SemestreComponent } from 'app/components/semestre/semestre.component';
+import { LicenciaComponent } from 'app/components/licencia/licencia.component';
+import { licensing } from 'googleapis/build/src/apis/licensing';
+import { ClaseComponent } from 'app/components/clase/clase.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -79,4 +82,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'materias', component: MateriaComponent},
     { path: 'materia-detalle', component: MateriaDetallesComponent },
     { path: 'semestres', component: SemestreComponent },
+    { path: 'licencias', component: LicenciaComponent },
+    { path: 'clases', component: ClaseComponent },
+
 ];
