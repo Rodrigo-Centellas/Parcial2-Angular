@@ -28,6 +28,10 @@ export class ClaseService {
     return this.http.delete<void>(`${this.apiUrl}/${id}`, this.getHeaders());
   }
 
+  generarClases(id: number): Observable<void> {
+    return this.http.get<void>(`${this.apiUrl}/generar=${id}`, this.getHeaders());
+  }
+
   private getHeaders() {
     const token = localStorage.getItem('jwtToken');
     return {

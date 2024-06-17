@@ -41,6 +41,9 @@ import { ClaseComponent } from './components/clase/clase.component';
 import { AsignarClaseComponent } from './components/asignar-clase/asignar-clase.component';
 import { HorarioClaseComponent } from './components/horario-clase/horario-clase.component';
 import { AulaClaseComponent } from './components/aula-clase/aula-clase.component';
+import { HorarioComponent } from './components/horario/horario.component';
+import { HorarioDialogComponent } from './components/horario-dialog/horario-dialog.component';
+import { AsistenciaComponent } from './components/asistencia/asistencia.component';
 
 
 
@@ -79,6 +82,15 @@ import { AulaClaseComponent } from './components/aula-clase/aula-clase.component
     ConfirmDialogComponent,
     SemestreDialogComponent,
     SemestreComponent,
+    ClaseComponent,
+    LicenciaComponent,
+    AsignarClaseComponent,
+    HorarioClaseComponent,
+    AulaClaseComponent,
+    HorarioComponent,
+    HorarioDialogComponent,
+    AsistenciaComponent,
+    
   ],
   providers: [ModuloService,FacultadService,CarreraService,MateriaComponent,
     LicenciaComponent,ClaseComponent,AsignarClaseComponent,AulaClaseComponent,HorarioClaseComponent,AulaDialogComponent],

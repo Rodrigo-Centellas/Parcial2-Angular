@@ -1,0 +1,42 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <button mat-raised-button class="btn btn-primary" (click)="openDialog()">Nuevo</button>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-warning">
+                        <h4 class="card-title">Tabla Horarios</h4>
+                        <p class="card-category">Gestionar Horarios</p>
+                    </div>
+                    <div class="card-content table-responsive table-full-width">
+                        <table class="table">
+                            <thead class="text-danger">
+                                <th>Hora Inicio</th>
+                                <th>Hora Fin</th>
+                                <th>Dia</th>
+                                <th>Aula</th>
+                                <th>Modulo</th>
+                                <th>Acciones</th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let horario of horarios">
+                                    <td>{{ horario.horarioInicio }}</td>
+                                    <td>{{ horario.horarioFin }}</td>
+                                    <td>{{ horario.dia }}</td>
+                                    <td>{{ horario.aula.nombre }}</td>
+                                    <td>{{ horario.aula.modulo.nombre }}</td>                                   
+                                    <td>
+                                        <button mat-raised-button class="btn btn-warning btn-sm"
+                                            (click)="editHorario(horario.id)">Editar</button>
+                                        <button mat-raised-button class="btn btn-danger btn-sm"
+                                            (click)="confirmDelete(horario.id)">Borrar</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

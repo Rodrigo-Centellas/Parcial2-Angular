@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { API_URL } from 'app/utilities/config';
+import { API_AUTH } from 'app/utilities/config';
 
 interface LoginRequest {
   email: string;
@@ -19,7 +19,7 @@ interface AuthResponse {
 })
 export class AuthService {
  // Adjust the URL if needed
-  private apiUrl = `${API_URL}/auth`;
+  private apiUrl = `${API_AUTH}/auth`;
 
   constructor(private http: HttpClient) {}
 

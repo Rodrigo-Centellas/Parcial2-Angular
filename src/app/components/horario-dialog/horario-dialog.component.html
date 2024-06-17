@@ -1,0 +1,36 @@
+<!-- nuevo-usuario-dialog.component.html -->
+<h2 mat-dialog-title>Nuevo Horario</h2>
+<mat-dialog-content>
+    <form [formGroup]="horarioForm">
+        <mat-form-field>
+            <mat-label>Hora Inicio</mat-label>
+            <input matInput type="time" formControlName="horarioInicio" required>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Hora Fin</mat-label>
+            <input matInput type="time" formControlName="horarioFin" required>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Dia</mat-label>
+            <mat-select formControlName="dia">
+                <mat-option value="MONDAY">lunes</mat-option>
+                <mat-option value="TUESDAY">martes</mat-option>
+                <mat-option value="WEDNESDAY">miercoles</mat-option>
+                <mat-option value="THURSDAY">jueves</mat-option>
+                <mat-option value="FRIDAY">viernes</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Aula</mat-label>
+            <mat-select formControlName="aula">
+                <mat-option *ngFor="let aula of aulas" [value]="aula.id">
+                    Aula: {{ aula.nombre }} - {{ aula.modulo.nombre }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button (click)="onCancel()">Cancelar</button>
+    <button mat-button (click)="onSave()">Guardar</button>
+</mat-dialog-actions>

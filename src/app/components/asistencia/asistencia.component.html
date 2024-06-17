@@ -1,0 +1,40 @@
+<div class="main-content">
+    <div class="container-fluid">        
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-warning">
+                        <h4 class="card-title">Tabla Asistencias</h4>
+                        <p class="card-category">Gestionar Asistencias</p>
+                    </div>
+                    <div class="card-content table-responsive table-full-width">
+                        <table class="table">
+                            <thead class="text-danger">
+                                <th>ID</th>
+                                <th>Docente</th>
+                                <th>Clase</th>
+                                <th>Tipo</th>
+                                <th>Hora Ingreso</th>
+                                <th>Hora Salida</th>
+                                <th>Minutos Atraso</th>
+                                <th>Fecha</th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let asistencia of asistencias">
+                                    <td>{{ asistencia.id }}</td>
+                                    <td>{{ asistencia.user.name }}</td>
+                                    <td>{{ asistencia.clase.materia.nombre }}</td>
+                                    <td>{{ asistencia.tipo }}</td>
+                                    <td>{{ asistencia.hora_ingreso }}</td>
+                                    <td>{{ asistencia.hora_salida }}</td>
+                                    <td>{{ asistencia.minutos_atraso }}</td>
+                                    <td>{{ asistencia.fecha }}</td>                                  
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

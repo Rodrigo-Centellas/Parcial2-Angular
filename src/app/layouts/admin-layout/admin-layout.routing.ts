@@ -20,6 +20,12 @@ import { SemestreComponent } from 'app/components/semestre/semestre.component';
 import { LicenciaComponent } from 'app/components/licencia/licencia.component';
 import { licensing } from 'googleapis/build/src/apis/licensing';
 import { ClaseComponent } from 'app/components/clase/clase.component';
+import { Horario } from '../../models/horario';
+import { HorarioClaseComponent } from 'app/components/horario-clase/horario-clase.component';
+import { AulaClase } from '../../models/aula_clase';
+import { AulaClaseComponent } from 'app/components/aula-clase/aula-clase.component';
+import { HorarioComponent } from 'app/components/horario/horario.component';
+import { AsistenciaComponent } from 'app/components/asistencia/asistencia.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -84,5 +90,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'semestres', component: SemestreComponent },
     { path: 'licencias', component: LicenciaComponent },
     { path: 'clases', component: ClaseComponent },
-
+    { path: 'Horario-clase', component: HorarioClaseComponent },
+    { path: 'Aula-clase', component: AulaClaseComponent },
+    { path: 'horarios', component: HorarioComponent },
+    { path: 'asistencias', component: AsistenciaComponent },
 ];

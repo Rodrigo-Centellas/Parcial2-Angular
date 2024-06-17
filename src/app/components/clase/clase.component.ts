@@ -94,6 +94,10 @@ export class ClaseComponent implements OnInit {
     this.claseService.deleteClase(clase.id).subscribe(() => this.getClases());
   }
 
+  generarClases(clase: Clase): void {
+    this.claseService.generarClases(clase.id).subscribe(() => this.getClases());
+  }
+
   addNew(): void {
     this.selectedClase = {
       id: 0,
