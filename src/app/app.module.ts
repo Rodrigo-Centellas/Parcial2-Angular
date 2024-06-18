@@ -46,6 +46,8 @@ import { HorarioDialogComponent } from './components/horario-dialog/horario-dial
 import { AsistenciaComponent } from './components/asistencia/asistencia.component';
 import { ReportComponent } from './components/reporte-clase/reporte-clase.component';
 
+import { AsistenciaDialogComponent } from './components/asistencia-dialog/asistencia-dialog.component';
+import { ReporteAsistenciaComponent } from './components/reporte-asistencia/reporte-asistencia.component';
 
 
 
@@ -92,10 +94,12 @@ import { ReportComponent } from './components/reporte-clase/reporte-clase.compon
     HorarioComponent,
     HorarioDialogComponent,
     AsistenciaComponent,
+    AsistenciaDialogComponent,
     
     HorarioClaseComponent,
     AulaClaseComponent,
-    ReportComponent
+    ReportComponent,
+    ReporteAsistenciaComponent,
   ],
   providers: [ModuloService,FacultadService,CarreraService,MateriaComponent,
     LicenciaComponent,ClaseComponent,AsignarClaseComponent,AulaClaseComponent,HorarioClaseComponent,AulaDialogComponent,ReportComponent],

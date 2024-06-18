@@ -1,0 +1,57 @@
+<h2 mat-dialog-title>Nuevo Usuario</h2>
+<mat-dialog-content>
+    <form [formGroup]="asistenciaForm">
+        <mat-form-field>
+            <mat-label>Tipo</mat-label>
+            <mat-select formControlName="tipo">
+                <mat-option value="falta">falta</mat-option>
+                <mat-option value="retraso">retraso</mat-option>
+                <mat-option value="presente">presente</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Hora Ingreso</mat-label>
+            <input matInput formControlName="hora_ingreso">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Hora Salida</mat-label>
+            <input matInput formControlName="hora_salida">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Minutos Atraso</mat-label>
+            <input matInput formControlName="minutos_atraso">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Fecha </mat-label>
+            <input matInput type="date" formControlName="fecha">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Usuario</mat-label>
+            <mat-select formControlName="user">
+                <mat-option *ngFor="let user of users" [value]="user.id">
+                    {{ user.name }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Clase</mat-label>
+            <mat-select formControlName="clase">
+                <mat-option *ngFor="let clase of clases" [value]="clase.id">
+                    {{ clase.materia.nombre }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Horario</mat-label>
+            <mat-select formControlName="horario">
+                <mat-option *ngFor="let horario of horarios" [value]="horario.id">
+                    {{ horario.dia }} {{ horario.hora_inicio }} - {{ horario.hora_fin }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button (click)="onCancel()">Cancelar</button>
+    <button mat-button (click)="onSave()">Guardar</button>
+</mat-dialog-actions>

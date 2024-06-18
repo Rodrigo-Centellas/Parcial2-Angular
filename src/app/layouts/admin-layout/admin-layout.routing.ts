@@ -30,6 +30,7 @@ import { AsistenciaComponent } from 'app/components/asistencia/asistencia.compon
 import { HorarioClaseComponent } from 'app/components/horario-clase/horario-clase.component';
 import { AulaClaseComponent } from 'app/components/aula-clase/aula-clase.component';
 import { ReportComponent } from 'app/components/reporte-clase/reporte-clase.component';
+import { ReporteAsistenciaComponent } from 'app/components/reporte-asistencia/reporte-asistencia.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -87,6 +88,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'grupos', component: GrupoComponent },
     { path: 'carreras', component: CarreraComponent },
     { path: 'reporte-clase', component: ReportComponent },
+    { path: 'reporte-asistencia', component: ReporteAsistenciaComponent },
     { path: 'facultades', component: FacultadComponent },
     {path: 'modulos', component: ModuloComponent},
     { path: 'materias', component: MateriaComponent},

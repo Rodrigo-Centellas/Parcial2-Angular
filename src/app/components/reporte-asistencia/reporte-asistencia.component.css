@@ -1,0 +1,37 @@
+.main-content {
+    padding: 20px;
+  }
+  
+  .card-header-info {
+    background-color: #17a2b8;
+  }
+  
+  .card-title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .card-category {
+    font-size: 16px;
+  }
+  
+  .card-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .report-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  

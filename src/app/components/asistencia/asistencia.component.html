@@ -1,5 +1,6 @@
-<div class="main-content">
-    <div class="container-fluid">        
+<div class="main-content">    
+    <div class="container-fluid">
+        <button mat-raised-button class="btn btn-primary" (click)="openDialog()">Nuevo</button>
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -28,7 +29,7 @@
                                     <td>{{ asistencia.hora_ingreso }}</td>
                                     <td>{{ asistencia.hora_salida }}</td>
                                     <td>{{ asistencia.minutos_atraso }}</td>
-                                    <td>{{ asistencia.fecha }}</td>                                  
+                                    <td>{{ asistencia.fecha }}</td>
                                 </tr>
                             </tbody>
                         </table>
