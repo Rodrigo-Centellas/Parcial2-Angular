@@ -44,6 +44,10 @@ export class HorarioClaseComponent implements OnInit {
 
   save(horarioClaseForm: any): void {
     if (horarioClaseForm.valid && this.selectedHorarioClase) {
+      if (this.checkOverlappingHorarios(this.selectedHorarioClase)) {
+        this.errorMessage = 'El horario se solapa con otro horario existente.';
+        return;
+      }
       this.horarioClaseService.createHorarioClase(this.selectedHorarioClase).subscribe({
         next: () => {
           this.getHorarioClases();
@@ -55,6 +59,24 @@ export class HorarioClaseComponent implements OnInit {
         }
       });
     }
+  }
+
+  checkOverlappingHorarios(newHorarioClase: HorarioClase): boolean {
+    for (let existingHorarioClase of this.horarioClases) {
+      if (existingHorarioClase.horario.dia === newHorarioClase.horario.dia) {
+        const newStart = new Date(`1970-01-01T${newHorarioClase.horario.horarioInicio}`);
+        const newEnd = new Date(`1970-01-01T${newHorarioClase.horario.horarioFin}`);
+        const existingStart = new Date(`1970-01-01T${existingHorarioClase.horario.horarioInicio}`);
+        const existingEnd = new Date(`1970-01-01T${existingHorarioClase.horario.horarioFin}`);
+
+        const isOverlapping = newStart < existingEnd && newEnd > existingStart;
+
+        if (isOverlapping) {
+          return true;
+        }
+      }
+    }
+    return false;
   }
 
   selectHorarioClase(horarioClase: HorarioClase): void {
@@ -69,7 +91,7 @@ export class HorarioClaseComponent implements OnInit {
     this.selectedHorarioClase = {
       id: 0,
       horario: { id: 0, horarioInicio: '', horarioFin: '', dia: '' },
-      clase: { id: 0, cupo: 0, user: null, grupo: null, materia: null, aulas: [], horarios: [] }
+      clase: { id: 0, cupo: 0, user: { id: 0, name: '', email: '', password: '', rol: '', ci: '', direccion: '', clases: [] }, grupo: { id: 0, nombre: '' }, materia: { id: 0, nombre: '', sigla: '', horas: 0, nivel: 0 }, aulas: [], horarios: [] }
     };
   }
 
@@ -78,5 +100,3 @@ export class HorarioClaseComponent implements OnInit {
     this.errorMessage = null;
   }
 }
-
-

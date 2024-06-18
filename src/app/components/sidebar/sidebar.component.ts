@@ -30,6 +30,16 @@ export const ROUTES: RouteInfo[] = [
     { path: '/icons', title: 'Icons',  icon:'bubble_chart', class: '' },
     { path: '/maps', title: 'Maps',  icon:'location_on', class: '' },
     { path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },
+    { path: '/clases', title: 'Gestion Clases',  icon: 'notifications', class: '' },
+    { path: '/clases-Horario', title: 'Asignar Horario a clases',  icon: 'library_books', class: '' },
+    { path: '/clases-Aula', title: 'Asignar Aula a clases',  icon: 'notifications', class: '' },
+    { path: '/reporte-clase', title: 'Reporte Programacion Academica',  icon: 'notifications', class: '' },
+    // { path: '/user-profile', title: 'User Profile',  icon:'person', class: '' },
+    // { path: '/table-list', title: 'Table List',  icon:'content_paste', class: '' },
+    // { path: '/typography', title: 'Typography',  icon:'library_books', class: '' },
+    // { path: '/icons', title: 'Icons',  icon:'bubble_chart', class: '' },
+    // { path: '/maps', title: 'Maps',  icon:'location_on', class: '' },
+    // { path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },
     
 ];
 

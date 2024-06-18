@@ -44,6 +44,8 @@ import { AulaClaseComponent } from './components/aula-clase/aula-clase.component
 import { HorarioComponent } from './components/horario/horario.component';
 import { HorarioDialogComponent } from './components/horario-dialog/horario-dialog.component';
 import { AsistenciaComponent } from './components/asistencia/asistencia.component';
+import { ReportComponent } from './components/reporte-clase/reporte-clase.component';
+
 
 
 
@@ -91,9 +93,12 @@ import { AsistenciaComponent } from './components/asistencia/asistencia.componen
     HorarioDialogComponent,
     AsistenciaComponent,
     
+    HorarioClaseComponent,
+    AulaClaseComponent,
+    ReportComponent
   ],
   providers: [ModuloService,FacultadService,CarreraService,MateriaComponent,
-    LicenciaComponent,ClaseComponent,AsignarClaseComponent,AulaClaseComponent,HorarioClaseComponent,AulaDialogComponent],
+    LicenciaComponent,ClaseComponent,AsignarClaseComponent,AulaClaseComponent,HorarioClaseComponent,AulaDialogComponent,ReportComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
